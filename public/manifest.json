@@ -1,0 +1,25 @@
+{
+  "short_name": "Mega Empire",
+  "name": "Mega Empire",
+  "icons": [
+    {
+      "src": "./small-logo.png",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "./medium-logo.png",
+      "type": "image/png",
+      "sizes": "200x200"
+    },
+    {
+      "src": "./large-logo.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": "/",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#ffffff"
+}

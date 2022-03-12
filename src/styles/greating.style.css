@@ -1,0 +1,149 @@
+.greating-section {
+  width: 100%;
+  height: auto;
+  background-image: url("../img/greating.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position-y: center;
+  background-attachment: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.greating--card {
+  width: 100%;
+  min-height: 400px;
+  max-width: 800px;
+  margin: 20px auto;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 20px;
+  border-radius: 10px;
+  background: #000;
+  background-position: top -40rem left -10rem;
+  background-repeat: no-repeat;
+  background-size: 75rem 75rem;
+  background: linear-gradient(45deg, #b3232f, #181b1b);
+  animation-name: greating1;
+  animation-duration: 1s;
+  animation-timing-function: cubic-bezier(0.41, 0.9, 0.43, 1.1);
+  box-shadow: inset 0px 0px 6px 10px #00000029;
+}
+
+.greating--card_greating {
+  flex: 50%;
+}
+.greating--card_greating h1 {
+  font-family: coc;
+  color: #fff;
+}
+.greating--card_greating p {
+  color: #fff;
+  text-align: justify;
+  margin: 10px 0;
+  font-family: "Roboto";
+  font-weight: 450;
+}
+.greating--card_greating button {
+  display: block;
+  font-family: coc;
+  background: linear-gradient(180deg, var(--btn-green), var(--btn-green-lts));
+  font-size: 1.1rem;
+  padding: 0.5rem;
+  border-radius: 8px;
+  color: #fff;
+  text-shadow: -2px -2px 1px #000;
+  border: 2px solid var(--btn-green);
+  outline: none;
+  margin: 10px auto;
+}
+.greating--card_greating button:focus {
+  transition-duration: 0.2s;
+  box-shadow: 0 0 0px 4px var(--btn-green-lts);
+  background: linear-gradient(180deg, var(--btn-green-lts), var(--btn-green));
+  text-shadow: 0px 2px 1px #000;
+}
+.greating--card_image {
+  flex: 50%;
+  min-height: 200px;
+}
+@keyframes greating1 {
+  from {
+    opacity: 0;
+    transform: scale(0);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .greating--card {
+    display: flex;
+    width: 95%;
+    flex-direction: column-reverse;
+  }
+  .greating--card_image {
+    width: 100%;
+    display: block;
+  }
+  .greating--card_image img {
+    display: block;
+    max-width: 200px;
+    margin: 0 auto;
+  }
+}
+
+@media only screen and (min-width: 600px) {
+  .greating--card {
+    display: flex;
+    width: 95%;
+    flex-direction: column-reverse;
+  }
+  .greating--card_image {
+    width: 100%;
+    display: block;
+  }
+  .greating--card_image img {
+    display: block;
+    max-width: 200px;
+    margin: 0 auto;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .greating--card {
+    display: flex;
+    width: 95%;
+    flex-direction: column-reverse;
+  }
+  .greating--card_image {
+    width: 100%;
+    display: block;
+  }
+  .greating--card_image img {
+    display: block;
+    max-width: 200px;
+    margin: 0 auto;
+  }
+}
+@media only screen and (min-width: 992px) {
+  .greating--card {
+    display: flex;
+    width: 95%;
+    flex-direction: row;
+  }
+  .greating--card_image {
+    width: 100%;
+    display: block;
+  }
+  .greating--card_image img {
+    display: block;
+    max-width: 100%;
+    margin: 0 auto;
+  }
+}

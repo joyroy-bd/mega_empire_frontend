@@ -1,0 +1,165 @@
+.img {
+  max-width: 30px;
+}
+.league-title {
+  padding: 10px;
+  font-family: coc;
+  background: linear-gradient(#ad5b45, #993318);
+  text-align: center;
+  color: #fff;
+  border-radius: 5px;
+}
+.warleague {
+  padding: 10px 0;
+  background: #3e2b27;
+}
+.warleague--teams {
+  background: #3e2b27;
+  padding: 10px 5px;
+  border-radius: 5px;
+}
+.warleague--teams_team {
+  margin: 10px auto;
+  width: 100%;
+  max-width: 700px;
+  display: flex;
+  flex-direction: row;
+  background: linear-gradient(#8b6663 30%, #744644 70%);
+  align-items: center;
+  border-radius: 0.5rem;
+  color: #fff;
+  border: 2px solid #fff;
+  box-shadow: 0 0 0px 4px #000;
+}
+.warleague--teams .ourclan {
+  background: linear-gradient(#667999 30%, #465d87 70%);
+}
+.warleague--teams_team .team-position {
+  width: 70px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.warleague--teams_team .team-position .team-position-indicator {
+  font-size: 2rem;
+  color: var(--col-green-0);
+}
+.team-position .down {
+  color: red !important;
+}
+.warleague--teams_team .team-position .team-position-index {
+  font-size: 1.1rem;
+  font-family: coc;
+}
+.warleague--teams_team .team-badge {
+  max-width: 65px;
+}
+.warleague--teams_team .team-badge img {
+  display: block;
+  width: 100%;
+}
+.warleague--teams_team .team-name {
+  display: flex;
+  flex: 60%;
+  max-width: 500px;
+  height: 100%;
+  flex-direction: column;
+}
+.warleague--teams_team .team-name b {
+  font-family: coc;
+  font-size: 1.1rem;
+}
+
+.warleague--teams_team .team-stars {
+  width: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #1d1b1a;
+  border-radius: 5px;
+  padding: 5px;
+}
+.warleague--teams_team .team-stars img {
+  display: block;
+  width: 25px;
+}
+
+.warleague--teams_team .team-distroy {
+  width: 60px;
+  min-height: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  background: #1d1b1a;
+  border-radius: 5px;
+  margin: 0 10px;
+}
+
+.warleague--teams_team .team-morebtn {
+  padding: 0.25rem 0.5rem;
+  margin: 0 10px;
+  border: 2px solid #288cca;
+  border-radius: 5px;
+  font-size: 1.1rem;
+  background: linear-gradient(#86c2e6, #288cca);
+}
+
+.warleague--rounds {
+  margin-top: 10px;
+}
+.warleague--rounds_round{
+  margin: 20px auto;
+}
+.warleague--rounds_round-teams {
+  display: flex;
+  flex-direction: row;
+  border: 3px solid #fff;
+  border-radius: 5px;
+  justify-content: center;
+  margin: 5px 0;
+}
+.warleague--rounds_round-teams .team1,
+.warleague--rounds_round-teams .team2 {
+  flex: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  background: #fffefe;
+}
+.warleague--rounds_round-teams .team2 {
+  flex-flow: row-reverse;
+}
+.warleague--rounds_round-teams .team1 .team-badge img,
+.warleague--rounds_round-teams .team2 .team-badge img {
+  max-width: 60px;
+}
+.warleague--rounds_round-teams .team1 .team-name,
+.warleague--rounds_round-teams .team2 .team-name {
+  font-family: coc;
+  font-size: 1rem;
+  min-width: 200px;
+}
+.warleague--rounds_round-teams .team1 .team-score,
+.warleague--rounds_round-teams .team2 .team-score {
+  min-width: 60px;
+  padding: 5px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border-radius: 5px;
+  color: #fff;
+  background: #1d1b1a;
+}
+.warleague--rounds_round-teams .inWar {
+  background: linear-gradient(#e5894a 50%, #e45a00 50%);
+  color: #fff;
+}
+.warleague--rounds_round-teams .win {
+  background: linear-gradient(#84b286 50%, #4e9555 50%);
+  color: #fff;
+}
+
+.warleague--rounds_round-teams .loss {
+  background: linear-gradient(#cb786e 50%, #c2574c 50%);
+  color: #fff;
+}

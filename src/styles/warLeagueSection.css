@@ -1,0 +1,94 @@
+
+.warleague-section {
+    background-image: url("../img/leagueBaner.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    padding: 30px 0;
+  }
+  .warleague--card {
+    width: 60%;
+    max-width: 600px;
+    height: auto;
+    margin: 0 auto;
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    box-shadow: 0 0 18px 7px #c4cade6b;
+    border-radius: 10px;
+    /* background-image: radial-gradient(20rem 20rem, #00a0fd 50%, #fafafa00 50%); */
+    background: linear-gradient(180deg, #66d090 40%, #18ba58 60%);
+  }
+  .warleague--card_body {
+    flex: 50%;
+  }
+  .warleague--card_body ul {
+    list-style: none;
+    list-style-position: inside;
+    color: #fff;
+    padding: 1rem 0.5rem;
+  }
+  .warleague--card_body ul li {
+    font-family: coc;
+    margin-top: 15px;
+    padding-bottom: 5px;
+    border-bottom: 1px dashed #66d090;
+  }
+  .warleague--card_body ul li:first-child {
+    font-size: 1.5rem;
+  }
+  .warleague--card_body ul li:nth-child(2) {
+    font-size: 1.1rem;
+  }
+  .warleague--card_body ul li:nth-child(3) {
+    color: #2bff80;
+  }
+  .warleague--card_body ul li span.uparrow {
+    width: 0;
+    height: 0;
+    border-left: 15px solid transparent;
+    border-right: 15px solid transparent;
+    border-bottom: 15px solid #87e220;
+    border-radius: 50px;
+    float: right;
+    animation-timing-function: ease-in-out;
+    animation-name: updown;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+  }
+  @keyframes updown {
+    0% {
+      margin: 0;
+    }
+    20% {
+      margin-top: -10px;
+    }
+    40% {
+      margin-top: 0;
+    }
+    50% {
+      margin-top: 0;
+    }
+    75% {
+      margin-top: 0;
+    }
+    100% {
+      margin: 0;
+    }
+  }
+  .warleague--card_body ul li:last-child {
+    border: none;
+  }
+  .warleague--card_body ul li button {
+    margin-left: 10px;
+  }
+  .warleague--card_image {
+    flex: 40%;
+  }
+  .warleague--card_image img {
+    display: block;
+    width: 100%;
+    margin: 10px 0;
+  }
+  /* War League Card End */
+  

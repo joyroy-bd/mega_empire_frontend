@@ -1,0 +1,28 @@
+/* Page Header */
+.header {
+    background: var(--col-purple-0);
+    width: 100%;
+  }
+  
+  .brand {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+  }
+  .brand--logo {
+    display: block;
+    max-width: 100px;
+  }
+  .brand--name {
+    color: #fff;
+    padding: 0.25rem 0;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+    align-items: flex-start;
+  }
+  .brand--name h2,.brand--name small,.brand--name h5{
+    font-family: coc;
+  }
+  
