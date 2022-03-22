@@ -1,0 +1,61 @@
+.feedback-section {
+  width: 100%;
+  color: #183153;
+  margin-top: 1rem;
+}
+.feedback--form {
+  width: 100%;
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+}
+.feedback--form_email {
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  border-radius: 5px;
+  overflow: hidden;
+  border: 1px solid #dbdee4;
+}
+.feedback--form_email span {
+  font-size: 1.5rem;
+  background: #f0f2f5;
+  width: 35px;
+  height: 35px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.feedback--form_email input {
+  display: block;
+  width: 100%;
+  font-size: 1.1rem;
+  border: none;
+  outline: none;
+  padding: 5px;
+}
+.feedback--form_body {
+  margin: 10px 0;
+  resize: none;
+  display: block;
+  width: 100%;
+  outline: none;
+  border: 1px solid #dbdee4;
+  border-radius: 5px;
+  padding: 10px;
+  font-size: 1.1rem;
+}
+.feedback--form_submit {
+  display: inline-block;
+  background: #f0f2f5;
+  border: 1px solid #dbdee4;
+  outline: none;
+  font-size: 1.2rem;
+  padding: 0.3rem 0.5rem;
+  border-radius: 5px;
+}
+.feedback--form_submit:hover {
+  background: var(--id-blue-ltz);
+  color: #fff;
+  box-shadow: 0px 0px 0px 3px var(--id-blue-ltz);
+}

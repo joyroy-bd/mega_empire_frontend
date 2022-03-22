@@ -1,6 +1,4 @@
 import React from "react";
-import Header from "../components/Header";
-import Nav from "../components/Nav";
 import { useLocation } from 'react-router-dom'
 
 function NotFoundSection({data="This Page"}){
@@ -11,8 +9,6 @@ function NotFoundSection({data="This Page"}){
 export default function NotFound() {
   return (
     <>
-    <Header />
-      <Nav />
       <NotFoundSection data={useLocation().pathname.replace('/','')} />
     </>
   )

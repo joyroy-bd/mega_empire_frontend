@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 
-function useClanInfo(tagName = "RRVJCJVY") {
-  tagName = tagName.replace('#','')
+function useCurrentWar(tagName = "#RRVJCJVY") {
+  tagName = tagName.replace("#", "");
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(true);
   const [data, setData] = useState(null);
@@ -12,10 +12,10 @@ function useClanInfo(tagName = "RRVJCJVY") {
         setLoading(true);
         setError(false);
 
-        let url = `${process.env.REACT_APP_SERVER1}/api/clan/${tagName}`;
+        let url = `${process.env.REACT_APP_SERVER1}/api/clan/${tagName}/currentwar`;
 
         const res = await fetch(url);
-  
+
         const data = await res.json();
         setLoading(false);
         setData(data);
@@ -26,14 +26,9 @@ function useClanInfo(tagName = "RRVJCJVY") {
       }
     }
     requestFetch();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [tagName]);
 
-  return {
-    loading,
-    error,
-    data,
-  };
+  return { loading, error, data };
 }
 
-export default useClanInfo;
+export default useCurrentWar;

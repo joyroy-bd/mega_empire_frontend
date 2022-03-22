@@ -1,0 +1,495 @@
+/* Current War */
+.float-right {
+  display: block;
+
+  float: right !important;
+  clear: both;
+}
+.currentwar {
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  background-image: repeating-linear-gradient(
+      157.5deg,
+      rgb(253, 222, 179) 0px,
+      rgb(253, 222, 179) 0px,
+      transparent 0px,
+      transparent 1px,
+      rgb(253, 222, 179) 1px,
+      rgb(253, 222, 179) 4px,
+      transparent 4px,
+      transparent 5px,
+      rgb(253, 222, 179) 5px,
+      rgb(253, 222, 179) 8px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      rgb(253, 222, 179) 0px,
+      rgb(253, 222, 179) 0px,
+      transparent 0px,
+      transparent 1px,
+      rgb(253, 222, 179) 1px,
+      rgb(253, 222, 179) 4px,
+      transparent 4px,
+      transparent 5px,
+      rgb(253, 222, 179) 5px,
+      rgb(253, 222, 179) 8px
+    ),
+    linear-gradient(135deg, rgb(181, 156, 122), rgb(234, 208, 161));
+}
+.currentwar * {
+  font-family: coc;
+}
+.currentwar--header {
+  background: #675740;
+  width: 80%;
+  max-width: 450px;
+  margin: 0 auto;
+  padding: 5px 10px;
+  border-radius: 0.5rem;
+  border: 1px solid #e1d9ce;
+  font-family: coc;
+}
+
+.currentwar--header_teams {
+  color: #fff1b9;
+  display: grid;
+  grid-template-columns: 1fr 20px 1fr;
+  grid-template-rows: auto;
+  align-items: center;
+  text-align: center;
+}
+.currentwar--header_teams-team {
+  display: flex;
+  align-items: center;
+}
+.currentwar--header_teams-team:first-child {
+  justify-content: end;
+}
+.teams-team_logo {
+  display: block;
+  max-width: 40px;
+}
+.currentwar--header_time {
+  display: flex;
+  align-items: center;
+}
+.currentwar--header_score {
+  height: 30px;
+  width: 100%;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.currentwar--header_score .progressbar {
+  width: 80%;
+  height: 20px;
+  border-radius: 5px;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background: #ffffff70;
+  border: 1px solid black;
+}
+.currentwar--header_score .progressbar.rev:last-child {
+  transform: rotateY(180deg);
+}
+.progressbar.rev .score {
+  transform: rotateY(180deg);
+}
+.currentwar--header_score .progressbar .star {
+  position: absolute;
+  font-size: 2rem;
+  top: -17px;
+  left: -10px;
+  color: #fff;
+  z-index: 20;
+}
+.currentwar--header_score .progressbar .progressbar-fill {
+  position: absolute;
+  left: 20px;
+  height: 100%;
+  border-radius: 5px;
+  background: linear-gradient(#f0c274 50%, #e99c1a 50%);
+}
+.currentwar--header_score .progressbar .score {
+  position: absolute;
+  right: 5px;
+  font-family: sans-serif;
+  color: #fff;
+  z-index: 20;
+}
+.currentwar--header_time span.time {
+  display: block;
+  width: 150px;
+  margin: 0 auto;
+  text-align: center;
+  background: linear-gradient(90deg, transparent, #ffffff66, transparent);
+  font-family: coc;
+  font-size: 0.6rem;
+  color: #fd6b53;
+  text-shadow: 1px 1px 2px #000;
+}
+.currentwar--header_status {
+  font-family: coc;
+  color: #fd6b53;
+  text-align: center;
+}
+.currentwar--header_status span {
+  font-family: inherit;
+  text-shadow: 1px 1px 2px #000;
+}
+.currentwar--header_atatcks {
+  padding: 0 20px;
+}
+.currentwar--header_atatcks-attack.left {
+  float: left;
+}
+.currentwar--header_atatcks-attack.right {
+  float: right;
+}
+.clear {
+  clear: both;
+}
+.currentwar--header_atatcks-attack {
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  align-items: center;
+}
+.currentwar--header_atatcks-attack img {
+  max-width: 20px;
+  display: block;
+}
+.currentwar--header_atatcks-attack span {
+  display: block;
+  font-family: sans-serif;
+  padding: 5px;
+  color: #fff;
+}
+@media only screen and (max-width: 600px) {
+  .currentwar--header {
+    width: 90%;
+  }
+}
+
+/* Current War */
+/* background-image: repeating-linear-gradient(157.5deg, rgb(253,222,179) 0px, rgb(253,222,179) 0px,transparent 0px, transparent 1px,rgb(253,222,179) 1px, rgb(253,222,179) 4px,transparent 4px, transparent 5px,rgb(253,222,179) 5px, rgb(253,222,179) 8px),repeating-linear-gradient(90deg, rgb(253,222,179) 0px, rgb(253,222,179) 0px,transparent 0px, transparent 1px,rgb(253,222,179) 1px, rgb(253,222,179) 4px,transparent 4px, transparent 5px,rgb(253,222,179) 5px, rgb(253,222,179) 8px),linear-gradient(135deg, rgb(181,156,122),rgb(234,208,161)); */
+
+.warlognav {
+  padding: 10px 0;
+  width: 80%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: 0 auto;
+  background: #e8e8e0;
+}
+
+.warlognav--btn {
+  width: 40%;
+  border-radius: 0.5rem;
+  border: 2px solid #bab8a8;
+  display: flex;
+  box-shadow: inset 0px 2px 0 #000;
+  background: linear-gradient(#a09a91 50%, #847c73 50%);
+}
+.warlognav--btn.active {
+  background: linear-gradient(#cccabc 50%, #bab8a8 50%);
+}
+.warlognav--btn_icon,
+.warlognav--btn_text {
+  display: block;
+}
+.warlognav--btn_text {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  font-family: coc;
+  text-shadow: 0px 3px 0 #000;
+}
+.warlognav--btn_icon {
+  max-width: 40px;
+  padding: 5px;
+}
+.warlognav--btn_icon img {
+  display: block;
+  width: 100%;
+}
+@media only screen and (max-width: 600px) {
+  .warlognav {
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .warlognav--btn {
+    width: 80%;
+    margin: 5px auto;
+  }
+}
+
+.clanwarsinfo-section {
+  background: linear-gradient(#4a4a4a 40%, #3a3a3a 60%);
+  border-radius: 0.5rem;
+  padding: 10px 20px;
+  display: grid;
+  grid-template-columns: 30% auto auto auto auto;
+  grid-template-rows: 50px;
+  align-items: center;
+}
+.clanwarsinfo-section * {
+  font-family: coc;
+  color: #fff;
+}
+.clanwarsinfo-section > div:not(.clanwarsinfo--status) {
+  text-align: center;
+  border-left: 2px solid #757575;
+}
+@media only screen and (max-width: 600px) {
+  .clanwarsinfo-section {
+    grid-template-columns: auto auto auto auto auto;
+    font-size: 0.8rem;
+  }
+}
+.win-green {
+  color: #cfefb5;
+}
+.loss-red {
+  color: #fbc6c6;
+}
+.tie-white {
+  color: #cccccc;
+}
+.total {
+  color: #ffc;
+}
+
+.clanwarlog * {
+  font-family: coc;
+}
+.clanwarlog--row {
+  border: 1px solid #999;
+  width: 100%;
+  margin: 5px auto;
+  border-radius: 0.5rem;
+  padding: 5px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background: #a3c469;
+  box-sizing: border-box;
+  overflow: hidden;
+  cursor: pointer;
+}
+.win {
+  background: linear-gradient(#b9d18e 50%, #a3c469 50%);
+  box-shadow: inset 0 0 0px 5px #a3c469;
+}
+.tie {
+  background: linear-gradient(#cecdc6 50%, #c3c2b8 50%);
+  box-shadow: inset 0 0 0 5px #c3c2b8;
+}
+.lose {
+  background: linear-gradient(#c28181 50%, #b86a6a 50%);
+  box-shadow: inset 0 0 0 5px #b86a6a;
+}
+.clanwarlog--row_time {
+  flex: 20%;
+  max-width: 80px;
+  /* border: 1px solid red; */
+  height: 100%;
+  min-height: 50px;
+  position: relative;
+}
+.clanwarlog--row_time small {
+  font-family: sans-serif;
+  position: absolute;
+  left: 1rem;
+  bottom: 0;
+  opacity: 0.7;
+  color: #fff;
+}
+
+.clanwarlog--row_teamsinfo {
+  flex: 60%;
+}
+.teaminfo-scores * {
+  color: #fff;
+  font-size: 0.75rem;
+  font-weight: 800;
+}
+.teaminfo-scores {
+  display: flex;
+  justify-content: center;
+}
+.team1-score {
+  flex: 40%;
+}
+.vs {
+  max-width: 75px;
+  flex: 20%;
+  text-align: center;
+}
+.team2-score {
+  flex: 40%;
+}
+.xp {
+  font-family: sans-serif;
+  color: #000;
+  font-size: 10px;
+}
+.xp i {
+  color: #2374bb;
+  opacity: 1;
+}
+@media only screen and (max-width: 600px) {
+  .clanwarlog--row_time,
+  .xp {
+    display: none;
+  }
+}
+.destroy {
+  font-family: sans-serif;
+  color: #747d63;
+}
+.team1-score,
+.team2-score {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+/* .teamsinfo-details {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+} */
+.teamsinfo-details {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  grid-template-rows: auto;
+}
+.team1-details {
+  margin-left: auto;
+}
+.team1-details,
+.team2-details {
+  display: flex;
+  flex-direction: row;
+}
+.team2-details {
+  margin-left: 0;
+  /* flex-direction: row-reverse; */
+}
+.team1-details p,
+.team1-details img,
+.team2-details p,
+.team2-details img {
+  display: block;
+  color: #fff;
+  text-shadow: 0 2px 0px black;
+  font-size: 1rem;
+}
+.team1-details img,
+.team2-details img {
+  max-width: 35px;
+}
+
+.clanwarlog--row_details {
+  flex: 20%;
+  max-width: 130px;
+  /* border: 1px solid blue; */
+}
+.clanwarlog--row_details button {
+  display: block;
+  width: 100%;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-direction: row;
+  margin: 0 auto;
+  padding: 0.25rem 0.7rem;
+  border-radius: 10px;
+  background: linear-gradient(#ffffed 50%, #eeeac1 50%);
+  box-shadow: inset 0px 0px 0px 5px #eeeac1;
+}
+.clanwarlog--row_details button span {
+  color: #fff;
+  text-shadow: 0 0 2px #000;
+  -webkit-text-stroke: #000;
+}
+.clanwarlog--row_details button img,
+.clanwarlog--row_details button span {
+  display: block;
+  width: auto;
+}
+.clanwarlog--row_details button img {
+  max-width: 30px;
+}
+
+.clanwardetails {
+  display: flex;
+  flex: row;
+  justify-content: space-between;
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+.team-clan {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.clanwardetails div {
+  flex: 50%;
+}
+.clanwardetails--team1_clan,
+.clanwardetails--team2_clan {
+  background: #4a4a4a;
+  padding: 0.5rem;
+}
+.clanwardetails--team1_clan {
+  border-right: 2px solid #757575;
+}
+.clanwardetails--team1_clan ul li,
+.clanwardetails--team2_clan ul li {
+  color: #fff;
+  margin: 0.2rem 0;
+}
+.clanwardetails--team1_clan ul li:not(.team-clan),
+.clanwardetails--team2_clan ul li:not(.team-clan) {
+  font-size: 0.7rem;
+}
+.clanwardetails--team1_members .member,
+.clanwardetails--team2_members .member {
+  width: 97%;
+  margin: 5px auto;
+  background: #bab8a8;
+  padding: 0.5rem;
+  border-radius: 5px;
+}
+.clanwardetails--team1_members .member ul li,
+.clanwardetails--team2_members .member ul li {
+  font-size: 0.6rem;
+  margin: 5px auto;
+}
+.clanwardetails--team1_members
+  .member
+  ul
+  li:not(.clanwardetails--team1_members .member ul li:last-child),
+.clanwardetails--team2_members
+  .member
+  ul
+  li:not(.clanwardetails--team2_members .member ul li:last-child) {
+  border-bottom: 1px solid #847c73;
+  padding-bottom: 3px;
+}
+.clanwardetails--team1_members .member ul li.attack ul,
+.clanwardetails--team2_members .member ul li.attack ul {
+  width: 70%;
+  margin-left: auto;
+}

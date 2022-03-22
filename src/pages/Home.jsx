@@ -1,6 +1,5 @@
 import React from "react";
-import Header from "../components/Header";
-import Nav from "../components/Nav";
+import FeedBackForm from "../components/FeedBackForm";
 import Greating from "../components/Greating";
 import Labels from "../components/Labels";
 import WarLeagueSection from "../components/WarLeagueSection";
@@ -8,11 +7,10 @@ import WarLeagueSection from "../components/WarLeagueSection";
 export default function Home({ clanInfo }) {
   return (
     <>
-      <Header />
-      <Nav />
-      <Greating />
+      <Greating clanInfo={clanInfo} />
       <Labels clanInfo={clanInfo} />
       <WarLeagueSection clanInfo={clanInfo} />
+      <FeedBackForm />
     </>
   );
 }
