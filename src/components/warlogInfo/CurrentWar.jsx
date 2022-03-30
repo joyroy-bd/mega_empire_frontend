@@ -8,9 +8,12 @@ import sword from "../../img/sword (1).png";
 
 export default function CurrentWar() {
   let { data } = useCurrentWar();
-  console.log(data);
-  let etime = useDate(data ? data.endTime : "");
+  //console.log(data);
+  let etime = useDate(
+    data ? (data.state === "preparation" ? data.startTime : data.endTime) : ""
+  );
   const [reload, setreload] = useState(false);
+
   useEffect(() => {
     let ent = setInterval(() => {
       setreload((pre) => !pre);
@@ -64,9 +67,11 @@ export default function CurrentWar() {
                   </div>
                 )}
 
-                <span className="time">
-                  <Moment fromNow date={etime} />
-                </span>
+                {data.state !== "notInWar" && (
+                  <span className="time">
+                    <Moment fromNow date={etime} />
+                  </span>
+                )}
 
                 {data.state === "inWar" && (
                   <div className="currentwar--header_score flex-rev">
@@ -89,7 +94,7 @@ export default function CurrentWar() {
               </div>
               <div className="currentwar--header_status">
                 <span>
-                  {data.state === "inWar" ? "Battal" : data.state} Day
+                  {data.state === "inWar" ? "Battal" : data.state.toUpperCase()}
                 </span>
               </div>
               {data.state === "inWar" && (

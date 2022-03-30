@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 
-function useCurrentWar(tagName = "#RRVJCJVY") {
-  tagName = tagName.replace("#", "");
+function useCurrentWar(tag) {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(true);
   const [data, setData] = useState(null);
@@ -12,7 +11,17 @@ function useCurrentWar(tagName = "#RRVJCJVY") {
         setLoading(true);
         setError(false);
 
-        let url = `${process.env.REACT_APP_SERVER1}/api/clan/${tagName}/currentwar`;
+        let url = new URL(
+          `${
+            process.env.NODE_ENV === "development"
+              ? process.env.REACT_APP_DEV_SERVER
+              : process.env.REACT_APP_SERVER
+          }/api/clan/currentwar`
+        );
+
+        if (tag) {
+          url.searchParams.append("tag",tag)
+        }
 
         const res = await fetch(url);
 
@@ -26,7 +35,7 @@ function useCurrentWar(tagName = "#RRVJCJVY") {
       }
     }
     requestFetch();
-  }, [tagName]);
+  }, [tag]);
 
   return { loading, error, data };
 }

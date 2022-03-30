@@ -12,7 +12,7 @@ import { useEffect } from "react";
 
 function App() {
   let { data } = useClanInfo();
-  
+
   useEffect(() => {
     if (data) {
       let link = document.createElement("link");
@@ -21,10 +21,6 @@ function App() {
       document.getElementsByTagName("head")[0].appendChild(link);
     }
   }, [data]);
-
-  // if (data) {
-  //   console.log(data);
-  // }
 
   return (
     <>

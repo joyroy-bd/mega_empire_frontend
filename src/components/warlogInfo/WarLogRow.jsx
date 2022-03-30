@@ -66,7 +66,7 @@ export default function WarLogRow({ war }) {
           </div>
         </div>
       </div>
-      {details && <WarDetails endTime={war.endTime} />}
+      {details && <WarDetails opponentTag={war.opponent.tag} />}
     </>
   );
 }

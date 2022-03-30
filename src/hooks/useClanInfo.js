@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 
-function useClanInfo(tagName = "RRVJCJVY") {
-  tagName = tagName.replace('#','')
+function useClanInfo(tag) {
+  //tagName = tagName.replace("#", "");
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(true);
   const [data, setData] = useState(null);
@@ -12,10 +12,20 @@ function useClanInfo(tagName = "RRVJCJVY") {
         setLoading(true);
         setError(false);
 
-        let url = `${process.env.REACT_APP_SERVER1}/api/clan/${tagName}`;
+        let url = new URL(
+          `${
+            process.env.NODE_ENV === "development"
+              ? process.env.REACT_APP_DEV_SERVER
+              : process.env.REACT_APP_SERVER
+          }/api/clan`
+        );
+
+        if (tag) {
+          url.searchParams.append("tag", tag);
+        }
 
         const res = await fetch(url);
-  
+
         const data = await res.json();
         setLoading(false);
         setData(data);
@@ -26,8 +36,7 @@ function useClanInfo(tagName = "RRVJCJVY") {
       }
     }
     requestFetch();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [tag]);
 
   return {
     loading,
