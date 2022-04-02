@@ -1,0 +1,41 @@
+.loading {
+  min-height: 100px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #c7c4c4;
+  cursor: progress;
+  border-radius: 10px;
+}
+.loading .text {
+  font-family: coc;
+}
+.loading .icone {
+  margin-left: 5px;
+}
+.spin {
+  animation-duration: 3s;
+  animation-timing-function: linear;
+  animation-fill-mode: forwards;
+  animation-name: spinx;
+  animation-iteration-count: infinite;
+}
+
+@keyframes spinx {
+  0% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(90deg);
+  }
+  50% {
+    transform: rotate(180deg);
+  }
+  75% {
+    transform: rotate(270deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

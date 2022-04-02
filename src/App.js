@@ -24,19 +24,19 @@ function App() {
 
   return (
     <>
-      <BrowserRouter>
-        <Header />
-        <Nav />
-        <Routes>
-          <Route
-            index
-            element={data ? <Home clanInfo={data} /> : <Loading />}
-          />
-          <Route path="/members" element={<Members />} />
-          <Route path="/war/*" element={<Warinfo />} />
-          <Route path="/*" element={<NotFound />} />
-        </Routes>
-      </BrowserRouter>
+      {data && (
+        <BrowserRouter>
+          <Header clanInfo={data} />
+          <Nav />
+          <Routes>
+            <Route index element={<Home clanInfo={data} />} />
+            <Route path="/members" element={<Members />} />
+            <Route path="/war/*" element={<Warinfo />} />
+            <Route path="/*" element={<NotFound />} />
+          </Routes>
+        </BrowserRouter>
+      )}
+      {!data && <Loading />}
     </>
   );
 }

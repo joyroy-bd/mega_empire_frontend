@@ -8,7 +8,7 @@ import sword from "../../img/sword (1).png";
 
 export default function CurrentWar() {
   let { data } = useCurrentWar();
-  //console.log(data);
+  console.log(data);
   let etime = useDate(
     data ? (data.state === "preparation" ? data.startTime : data.endTime) : ""
   );

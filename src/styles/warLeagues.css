@@ -44,9 +44,7 @@
   font-size: 2rem;
   color: var(--col-green-0);
 }
-.team-position .down {
-  color: red !important;
-}
+
 .warleague--teams_team .team-position .team-position-index {
   font-size: 1.1rem;
   font-family: coc;

@@ -8,13 +8,16 @@ export default function Greating({ clanInfo }) {
     });
   }
 
+  let dis = clanInfo.description.split(".")
+  
+
   return (
     <section className="greating-section">
       <div className="container">
         <div className="greating--card">
           <div className="greating--card_greating">
             <h1>Wellcome.</h1>
-            <p>{clanInfo.description}</p>
+            <p>{dis[0]}</p>
             <ul
               style={{
                 listStyleType: "initial",
@@ -31,7 +34,7 @@ export default function Greating({ clanInfo }) {
           </div>
           <div className="greating--card_image">
             <img
-              src="https://api-assets.clashofclans.com/badges/512/jqabKPbWd6n4m2YWixgbHtNXRiwK3CrIagCzloAo_Z4.png"
+              src={clanInfo.badgeUrls.large}
               alt=""
             />
           </div>
