@@ -7,7 +7,7 @@ import WarLeagueRounds from "../components/warlogInfo/WarLeagueRounds";
 
 export default function LeagueWarLog() {
   let { data: leagueInfo, error, loading } = useClanLeagueGroup("#RRVJCJVY");
-  // console.log("Page Render");
+  console.log("League Page Render");
 
   return (
     <>

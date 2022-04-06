@@ -44,7 +44,9 @@
   font-size: 2rem;
   color: var(--col-green-0);
 }
-
+.team-position .down {
+  color: red !important;
+}
 .warleague--teams_team .team-position .team-position-index {
   font-size: 1.1rem;
   font-family: coc;
@@ -101,31 +103,51 @@
   font-size: 1.1rem;
   background: linear-gradient(#86c2e6, #288cca);
 }
-
+@media only screen and (max-width: 600px) {
+  .warleague--teams_team .team-morebtn {
+    display: none;
+  }
+}
 .warleague--rounds {
   margin-top: 10px;
 }
-.warleague--rounds_round{
-  margin: 20px auto;
-}
 .warleague--rounds_round-teams {
   display: flex;
-  flex-direction: row;
   border: 3px solid #fff;
   border-radius: 5px;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: 50% 50%;
   margin: 5px 0;
+  cursor: pointer;
+}
+.warleague--rounds_round-teams::-webkit-scrollbar {
+  display: none;
+  background: red;
 }
 .warleague--rounds_round-teams .team1,
 .warleague--rounds_round-teams .team2 {
-  flex: 50%;
-  display: flex;
+  display: grid;
+  grid-template-columns: 80px auto 80px;
+  grid-row: auto;
   align-items: center;
-  justify-content: space-around;
-  background: #fffefe;
 }
-.warleague--rounds_round-teams .team2 {
-  flex-flow: row-reverse;
+@media only screen and (max-width: 600px) {
+  .warleague--rounds_round-teams .team1 *,
+  .warleague--rounds_round-teams .team2 * {
+    overflow: hidden;
+  }
+  .warleague--rounds_round-teams .team1,
+  .warleague--rounds_round-teams .team2 {
+    grid-template-columns: 80px auto;
+    grid-template-rows: auto;
+  }
+}
+
+.warleague--rounds_round-teams .team1 .team-badge-name,
+.warleague--rounds_round-teams .team2 .team-badge-name {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .warleague--rounds_round-teams .team1 .team-badge img,
 .warleague--rounds_round-teams .team2 .team-badge img {
@@ -135,11 +157,10 @@
 .warleague--rounds_round-teams .team2 .team-name {
   font-family: coc;
   font-size: 1rem;
-  min-width: 200px;
 }
 .warleague--rounds_round-teams .team1 .team-score,
 .warleague--rounds_round-teams .team2 .team-score {
-  min-width: 60px;
+  width: 70px;
   padding: 5px;
   display: flex;
   justify-content: space-around;
@@ -147,6 +168,11 @@
   border-radius: 5px;
   color: #fff;
   background: #1d1b1a;
+  margin: 0 auto;
+}
+.warleague--rounds_round-teams .preparation {
+  background: linear-gradient(#5c8ca1 50%, #0b5a81 50%);
+  color: #fff;
 }
 .warleague--rounds_round-teams .inWar {
   background: linear-gradient(#e5894a 50%, #e45a00 50%);
@@ -156,8 +182,69 @@
   background: linear-gradient(#84b286 50%, #4e9555 50%);
   color: #fff;
 }
-
 .warleague--rounds_round-teams .loss {
   background: linear-gradient(#cb786e 50%, #c2574c 50%);
+  color: #fff;
+}
+
+.wardetails {
+  background: #fff;
+  padding: 0.5rem;
+  border-radius: 5px;
+  display: grid;
+  grid-template-columns: 50% 50%;
+  grid-template-rows: auto;
+  grid-column-gap: 5px;
+}
+@media only screen and (max-width: 600px) {
+  .wardetails {
+    grid-template-columns: 100%;
+  grid-template-rows: auto auto;
+  }
+}
+.wardetails .team1 .name,
+.wardetails .team2 .name {
+  text-align: center;
+  background: #3c096c;
+  color: #fff;
+  padding: 0.5rem 0;
+  border-radius: 5px;
+}
+
+.wardetails .members {
+  width: 100%;
+  background: red;
+  border-collapse: collapse;
+  font-size: 1.01rem;
+  margin: 10px auto;
+}
+.members thead tr th{
+  background: #3a0ca3;
+  color: #fff;
+  padding: 0.5rem;
+  border: 1px solid #e9ecef;
+  font-weight: bold;
+}
+.wardetails .members tbody tr td{
+  padding: 0.5rem;
+  border: 1px solid #e9ecef;
+}
+.members tbody tr:nth-child(even){
+  background: #4cc9f0;
+  color: #fff;
+}
+.members tbody tr:nth-child(odd){
+  background: #f72585;
+  color: #fff;
+}
+.members tbody tr td:nth-child(2){
+  text-align: center;
+}
+.wardetails .members tbody tr.remain{
+  background: #2a9d8f;
+  color: #fff;
+}
+.wardetails .members tbody tr.used{
+  background: #e76f51;
   color: #fff;
 }

@@ -6,8 +6,9 @@ import {
   faCaretUp,
 } from "@fortawesome/free-solid-svg-icons";
 
-function ClanRow({ clan, index }) {
+function ClanRow({ clan, index, star }) {
   const [up] = useState(true);
+
   return (
     <>
       <div
@@ -35,7 +36,7 @@ function ClanRow({ clan, index }) {
         </div>
         <div className="team-stars">
           <FontAwesomeIcon icon={faStar} />
-          <span>0</span>
+          <span>{star}</span>
         </div>
         <div className="team-distroy">0%</div>
         <div className="team-morebtn">
@@ -58,7 +59,7 @@ export default function WarLeagueTeams({ leagueInfo }) {
         </h2>
         <div className="warleague--teams">
           {leagueInfo.clans.map((clan, index) => (
-            <ClanRow key={index} clan={clan} index={index} />
+            <ClanRow key={index} clan={clan} star={false} index={index} />
           ))}
         </div>
       </div>

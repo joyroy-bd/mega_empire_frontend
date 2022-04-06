@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Home from "./pages/Home";
 import Members from "./pages/Members";
 import NotFound from "./pages/NotFound";
@@ -8,6 +8,7 @@ import Loading from "./pages/Loading";
 import Header from "./components/Header";
 import Nav from "./components/Nav";
 import Warinfo from "./pages/Warinfo";
+import Test from "./pages/test";
 import { useEffect } from "react";
 
 function App() {
@@ -32,7 +33,9 @@ function App() {
             <Route index element={<Home clanInfo={data} />} />
             <Route path="/members" element={<Members />} />
             <Route path="/war/*" element={<Warinfo />} />
+            <Route path="/warleague" element={<Navigate to="/war/league" />} />
             <Route path="/*" element={<NotFound />} />
+            <Route path="/test" element={<Test />} />
           </Routes>
         </BrowserRouter>
       )}

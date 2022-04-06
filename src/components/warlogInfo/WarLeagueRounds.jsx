@@ -3,6 +3,7 @@ import WarLeagueRoundTeams from "./WarLeagueRoundTeams";
 
 export default function WarLeagueRounds({ leagueRounds }) {
   // console.log("WarLeagueRounds")
+  // console.log(leagueRounds)
   return (
     <>
       {leagueRounds.map((round, index) => (
