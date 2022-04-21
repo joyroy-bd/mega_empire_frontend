@@ -1,23 +1,21 @@
 import { faStar } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React, { Fragment, useState } from "react";
+import React, { Fragment, useEffect, useState } from "react";
 import useClanLeagueWar from "../../hooks/useClanLeagueWar";
 
-// {console.log(
-//   data.clan.members.sort((next, curr) => {
-//     console.table("next", next);
-//     console.table("curr", curr);
-//     if (curr.townhallLevel > next.townhallLevel) {
-//       return -1;
-//     } else {
-//       return +1;
-//     }
-//   })
-// )}
-
-export default function WarLeagueRoundTeams({ warTag }) {
-  const [toggel, setToggel] = useState(true);
+export default function WarLeagueRoundTeams({ warTag, setWars }) {
+  const [toggel, setToggel] = useState(!true);
   let { data } = useClanLeagueWar(warTag);
+
+  useEffect(() => {
+    if (data) {
+      setWars((pre) => {
+        pre.push(data);
+        return pre;
+      });
+    }
+  }, [data, setWars]);
+
   function viewDetails() {
     setToggel((pre) => !pre);
   }
@@ -88,8 +86,7 @@ export default function WarLeagueRoundTeams({ warTag }) {
                   </div>
                 </div>
               </div>
-
-              {toggel && (
+              {(data.state === "inWar" ? !toggel : toggel) && (
                 <>
                   <div className="wardetails">
                     <div className="team1">
@@ -129,7 +126,6 @@ export default function WarLeagueRoundTeams({ warTag }) {
                                     "Remain"
                                   )}
                                 </td>
-                                {console.log(member.attacks)}
                               </tr>
                             </Fragment>
                           ))}

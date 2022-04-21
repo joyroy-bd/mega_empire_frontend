@@ -1,7 +1,6 @@
-import React from "react";
+import React, { Fragment } from "react";
 import Loading from "../components/Loading";
-import ClassicWarHeader from "../components/warlogInfo/ClassicWarHeader";
-import CurrentWar from "../components/warlogInfo/CurrentWar";
+import ClassicWarLogHeader from "../components/warlogInfo/ClassicWarLogHeader";
 import WarLogRow from "../components/warlogInfo/WarLogRow";
 import useClanInfo from "../hooks/useClanInfo";
 
@@ -10,9 +9,8 @@ export default function ClassicWarLog({ warLog = null }) {
 
   return (
     <>
-      <CurrentWar />
       {data && (
-        <ClassicWarHeader
+        <ClassicWarLogHeader
           win={data.warWins}
           loss={data.warLosses}
           tie={data.warTies}
@@ -21,7 +19,12 @@ export default function ClassicWarLog({ warLog = null }) {
       <section className="container">
         <div className="clanwarlog">
           {warLog &&
-            warLog.map((war, index) => <WarLogRow key={index} war={war} />)}
+            warLog.map((war, index) => {
+              if (!war.opponent.clanLevel) {
+                return <Fragment key={index}></Fragment>;
+              }
+              return <WarLogRow key={index} war={war} />;
+            })}
           {loading && <Loading container error={error} loading={loading} />}
         </div>
       </section>

@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import Members from "./pages/Members";
 import NotFound from "./pages/NotFound";
@@ -10,6 +10,7 @@ import Nav from "./components/Nav";
 import Warinfo from "./pages/Warinfo";
 import Test from "./pages/test";
 import { useEffect } from "react";
+import Clan from "./pages/Clan";
 
 function App() {
   let { data } = useClanInfo();
@@ -33,9 +34,10 @@ function App() {
             <Route index element={<Home clanInfo={data} />} />
             <Route path="/members" element={<Members />} />
             <Route path="/war/*" element={<Warinfo />} />
-            <Route path="/warleague" element={<Navigate to="/war/league" />} />
-            <Route path="/*" element={<NotFound />} />
+            <Route path="/clan/*" element={<Clan />} />
             <Route path="/test" element={<Test />} />
+            <Route path="/error" element={<p>Error</p>} />
+            <Route path="/*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>
       )}

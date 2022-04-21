@@ -6,7 +6,13 @@ export default function useFetch(url) {
   const [data, setData] = useState(null);
 
   fetch(url)
-    .then((res) => res.json())
+    .then((res) => {
+      if (res.status > 400) {
+        throw Error(data.message);
+      } else {
+        res.json();
+      }
+    })
     .then((dat) => {
       setData(dat);
       setLoading(false);

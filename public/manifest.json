@@ -4,8 +4,8 @@
   "icons": [
     {
       "src": "./small-logo.png",
-      "sizes": "64x64 32x32 24x24 16x16",
-      "type": "image/x-icon"
+      "sizes": "70x70",
+      "type": "image/png"
     },
     {
       "src": "./medium-logo.png",
@@ -20,6 +20,6 @@
   ],
   "start_url": "/",
   "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
+  "theme_color": "#fff",
+  "background_color": "#fff"
 }

@@ -1,7 +1,7 @@
 import React, { Fragment } from "react";
 import WarLeagueRoundTeams from "./WarLeagueRoundTeams";
 
-export default function WarLeagueRounds({ leagueRounds }) {
+export default function WarLeagueRounds({ leagueRounds, setWars }) {
   // console.log("WarLeagueRounds")
   // console.log(leagueRounds)
   return (
@@ -16,7 +16,11 @@ export default function WarLeagueRounds({ leagueRounds }) {
                   {round.warTags.map(
                     (warTag, warIndex) =>
                       warTag !== "#0" && (
-                        <WarLeagueRoundTeams warTag={warTag} key={warIndex} />
+                        <WarLeagueRoundTeams
+                          setWars={setWars}
+                          warTag={warTag}
+                          key={warIndex}
+                        />
                       )
                   )}
                 </div>

@@ -20,12 +20,15 @@ function useCurrentWar(tag) {
         );
 
         if (tag) {
-          url.searchParams.append("tag",tag)
+          url.searchParams.append("tag", tag);
         }
 
         const res = await fetch(url);
 
         const data = await res.json();
+        if (res.status>400) {
+          throw Error(data.message);
+        }
         setLoading(false);
         setData(data);
       } catch (err) {

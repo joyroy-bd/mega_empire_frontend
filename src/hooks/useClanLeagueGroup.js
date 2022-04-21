@@ -24,8 +24,10 @@ function useClanLeagueGroup(tag) {
         }
 
         const res = await fetch(url);
-
         const data = await res.json();
+        if (res.status>400) {
+          throw Error(data.message);
+        }
         setLoading(false);
         setData(data);
       } catch (err) {
