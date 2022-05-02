@@ -2,15 +2,22 @@ import React, { useState } from "react";
 import WarLeagueTeams from "../components/warlogInfo/WarLeagueTeams";
 import useClanLeagueGroup from "../hooks/useClanLeagueGroup";
 import "../styles/warLeagues.css";
-import Loading from "../components/Loading";
 import WarLeagueRounds from "../components/warlogInfo/WarLeagueRounds";
+import { useSearchParams } from "react-router-dom";
 
 export default function LeagueWarLog() {
-  let { data: leagueInfo, error, loading } = useClanLeagueGroup("#RRVJCJVY");
+  let [URLSearchParams] = useSearchParams();
+  let clanTag = URLSearchParams.get("tag");
+  let {
+    data: leagueInfo,
+    error,
+    loading,
+  } = useClanLeagueGroup(clanTag ? clanTag : "#RRVJCJVY");
+
   const [wars, setWars] = useState([]);
   // console.log("League Page Render");
-  console.log(leagueInfo);
-  console.log(error);
+  // console.log(leagueInfo);
+  // console.log(error);
 
   return (
     <>
@@ -18,7 +25,9 @@ export default function LeagueWarLog() {
       {leagueInfo && (
         <WarLeagueRounds setWars={setWars} leagueRounds={leagueInfo.rounds} />
       )}
-      {!leagueInfo && <Loading loading={loading} error={error} container />}
+      {!loading && !leagueInfo && (
+        <p style={{ textAlign: "center" }}>{error.reason}</p>
+      )}
     </>
   );
 }

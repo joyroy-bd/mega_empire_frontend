@@ -100,7 +100,7 @@ export default function CurrentWarHeader({ data }) {
               <div className="clear"></div>
             </div>
             <div className="clear"></div>
-            {/* <div className="currentwar--header_clans">
+            <div className="currentwar--header_clans">
               <a
                 target="_blank"
                 rel="noreferrer"
@@ -119,14 +119,14 @@ export default function CurrentWarHeader({ data }) {
               >
                 View Clan
               </a>
-            </div> */}
+            </div>
           </>
         )}
-        <div className="currentwar--header_clans">
+        {/* <div className="currentwar--header_clans">
           <a
             target="_blank"
             rel="noreferrer"
-            href={`/clan?${new URLSearchParams({
+            // href={`/clan?${new URLSearchParams({
               tag: data.clan.tag,
             }).toString()}`}
           >
@@ -141,7 +141,7 @@ export default function CurrentWarHeader({ data }) {
           >
             View Clan
           </a>
-        </div>
+        </div> */}
       </div>
     </>
   );

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { Route, Routes, Navigate, useSearchParams } from "react-router-dom";
 import useClanInfo from "../hooks/useClanInfo";
 import Nav from "../components/clan.components/Nav";
@@ -11,15 +11,13 @@ import ClassicWarHeader from "../components/warlogInfo/ClassicWarLogHeader";
 
 export default function Clan() {
   let [search] = useSearchParams();
-  const [clanTag, setClanTag] = useState("#RRVJCJVY");
+  console.log(search.get("tag"));
 
-  useEffect(() => {
-    setClanTag((pre) => {
-      return search.get("tag") ? search.get("tag") : pre;
-    });
-  }, [search]);
-
-  const { loading, data: clanData, error } = useClanInfo(clanTag);
+  const {
+    loading,
+    data: clanData,
+    error,
+  } = useClanInfo(search.get("tag") ? search.get("tag") : "#RRVJCJVY");
 
   return (
     <main>
@@ -30,7 +28,11 @@ export default function Clan() {
         <>
           <Nav />
           <Head clanData={clanData} />
-          <ClassicWarHeader win={clanData.warWins} loss={clanData.warLosses} tie={clanData.warTies} />
+          <ClassicWarHeader
+            win={clanData.warWins}
+            loss={clanData.warLosses}
+            tie={clanData.warTies}
+          />
           <Routes>
             <Route
               index

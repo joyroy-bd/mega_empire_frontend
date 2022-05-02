@@ -2,9 +2,13 @@ import { faStar } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { Fragment, useEffect, useState } from "react";
 import useClanLeagueWar from "../../hooks/useClanLeagueWar";
+import CurrentWarFooter from "./CurrentWarFooter";
+import CurrentWarHeader from "./CurrentWarHeader";
+import CurrentWarMain from "./CurrentWarMain";
 
 export default function WarLeagueRoundTeams({ warTag, setWars }) {
   const [toggel, setToggel] = useState(!true);
+  const [showdetails, setShowdetails] = useState({ show: false, data: null });
   let { data } = useClanLeagueWar(warTag);
 
   useEffect(() => {
@@ -88,93 +92,35 @@ export default function WarLeagueRoundTeams({ warTag, setWars }) {
               </div>
               {(data.state === "inWar" ? !toggel : toggel) && (
                 <>
-                  <div className="wardetails">
-                    <div className="team1">
-                      <h2 className="name">{data.clan.name}</h2>
-                      <hr />
-                      <table className="members">
-                        <thead>
-                          <tr>
-                            <th>Name</th>
-                            <th>Town Hall</th>
-                            <th>Attack</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          {data.clan.members.map((member, ind) => (
-                            <Fragment key={ind}>
-                              <tr
-                                className={
-                                  data.state === "inWar"
-                                    ? member.attacks
-                                      ? "used"
-                                      : "remain"
-                                    : ""
-                                }
-                              >
-                                <td>{member.name}</td>
-                                <td>{member.townhallLevel}</td>
-                                <td>
-                                  {member.attacks ? (
-                                    <>
-                                      <span>
-                                        Used {member.attacks[0].stars}{" "}
-                                        <FontAwesomeIcon icon={faStar} />
-                                      </span>
-                                    </>
-                                  ) : (
-                                    "Remain"
-                                  )}
-                                </td>
-                              </tr>
-                            </Fragment>
-                          ))}
-                        </tbody>
-                      </table>
-                    </div>
-                    <div className="team2">
-                      <h2 className="name">{data.opponent.name}</h2>
-                      <hr />
-                      <table className="members">
-                        <thead>
-                          <tr>
-                            <th>Name</th>
-                            <th>Town Hall</th>
-                            <th>Attack</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          {data.opponent.members.map((member, ind) => (
-                            <Fragment key={ind}>
-                              <tr
-                                className={
-                                  data.state === "inWar"
-                                    ? member.attacks
-                                      ? "used"
-                                      : "remain"
-                                    : ""
-                                }
-                              >
-                                <td>{member.name}</td>
-                                <td>{member.townhallLevel}</td>
-                                <td>
-                                  {member.attacks ? (
-                                    <>
-                                      <span>
-                                        Used {member.attacks[0].stars}{" "}
-                                        <FontAwesomeIcon icon={faStar} />
-                                      </span>
-                                    </>
-                                  ) : (
-                                    "Remain"
-                                  )}
-                                </td>
-                              </tr>
-                            </Fragment>
-                          ))}
-                        </tbody>
-                      </table>
-                    </div>
+                  <div
+                    style={{ background: "#fff" }}
+                    className={`currentwar ${data.state}`}
+                  >
+                    <CurrentWarHeader data={data} />
+
+                    {data.state !== "notInWar" && (
+                      <>
+                        <CurrentWarMain
+                          setShowdetails={setShowdetails}
+                          data={data}
+                        >
+                          <CurrentWarFooter
+                            showdetails={showdetails}
+                            setShowdetails={setShowdetails}
+                            data={data}
+                          />
+                        </CurrentWarMain>
+                      </>
+                      // <>
+                      //   <CurrentWarMain setShowdetails={setShowdetails} data={data}>
+                      //     <CurrentWarFooter
+                      //       showdetails={showdetails}
+                      //       setShowdetails={setShowdetails}
+                      //       data={data}
+                      //     />
+                      //   </CurrentWarMain>
+                      // </>
+                    )}
                   </div>
                 </>
               )}

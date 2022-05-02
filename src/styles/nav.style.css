@@ -104,6 +104,25 @@
   transition-property: color;
   transition-duration: 0.4s;
 }
+form.nav--list_about--list_item {
+  display: block;
+  width: 100%;
+  background: transparent;
+}
+form.nav--list_about--list_item input{
+  display: block;
+  width: 95%;
+  padding: 0.25rem 0.3rem;
+  font-size: 1.01rem;
+  background: transparent;
+  border: none;
+  outline: none;
+  border-bottom: 3px solid #666;
+  color: #fff;
+}
+form.nav--list_about--list_item input:focus{
+
+}
 .nav--list_about--list_item:hover {
   color: var(--col-orange-2);
 }

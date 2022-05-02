@@ -43,6 +43,11 @@ export default function Nav() {
           </div>
           <ul className="nav--list">
             <li>
+              <Link className="nav--list_btn active" to="/clan">
+                Clan
+              </Link>
+            </li>
+            <li>
               <Link className="nav--list_btn" to="/members">
                 Members
               </Link>
@@ -60,9 +65,19 @@ export default function Nav() {
             <li>
               <div className="nav--list_about">
                 <button className="nav--list_about--btn" onClick={aboutToggle}>
-                  About
+                  Find
                 </button>
                 <ul className="nav--list_about--list hideabout" ref={aboutList}>
+                  <li>
+                    <form
+                      className="nav--list_about--list_item"
+                      action="/clan"
+                      method="get"
+                    >
+                      <input type="search" name="tag" />
+                      <button type="submit">Find</button>
+                    </form>
+                  </li>
                   <li>
                     <Link to="/" className="nav--list_about--list_item">
                       Home
@@ -74,7 +89,10 @@ export default function Nav() {
                     </Link>
                   </li>
                   <li>
-                    <Link to="/#greating" className="nav--list_about--list_item">
+                    <Link
+                      to="/#greating"
+                      className="nav--list_about--list_item"
+                    >
                       Greating
                     </Link>
                   </li>

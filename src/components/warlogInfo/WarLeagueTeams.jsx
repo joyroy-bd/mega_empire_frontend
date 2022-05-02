@@ -1,13 +1,19 @@
 import React, { useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faStar,
-  faCaretDown,
-  faCaretUp,
-} from "@fortawesome/free-solid-svg-icons";
+import { faStar } from "@fortawesome/free-solid-svg-icons";
 
 function ClanRow({ clan, index, details }) {
-  const [up] = useState(true);
+
+  function gotoClan(tag){
+    let query = new URLSearchParams()
+    query.append('tag',tag)
+    let a = document.createElement("a")
+    a.setAttribute('target',"_blank")
+    a.setAttribute('rel',"noopener noreferrer")
+    a.setAttribute('href',`/clan?${query.toString()}`)
+    a.click()
+  }
+
   let { stars, destructionPercentage } = details[clan.tag]
     ? details[clan.tag]
     : { stars: 0, destructionPercentage: 0 };
@@ -19,14 +25,9 @@ function ClanRow({ clan, index, details }) {
             ? "warleague--teams_team ourclan"
             : "warleague--teams_team"
         }
+        onClick={()=>{gotoClan(clan.tag)}}
       >
         <div className="team-position">
-          <span className="team-position-indicator">
-            <FontAwesomeIcon
-              style={!up && { color: "red" }}
-              icon={up ? faCaretUp : faCaretDown}
-            />
-          </span>
           <span className="team-position-index up">{index + 1}.</span>
         </div>
         <div className="team-badge">

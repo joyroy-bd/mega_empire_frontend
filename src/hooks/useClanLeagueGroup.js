@@ -25,15 +25,16 @@ function useClanLeagueGroup(tag) {
 
         const res = await fetch(url);
         const data = await res.json();
-        if (res.status>400) {
-          throw Error(data.message);
+
+        if (res.status > 400) {
+          //throw Error(data.message);
+          throw new Error(JSON.stringify(data));
         }
         setLoading(false);
         setData(data);
       } catch (err) {
         setLoading(false);
-        setError(true);
-        console.log(err);
+        setError(JSON.parse(err.message));
       }
     }
     requestFetch();

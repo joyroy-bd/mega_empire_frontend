@@ -2,18 +2,23 @@ import React, { Fragment } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
 
+function findPlayer(allPlayer, playerTag) {
+  //console.log(allPlayer, playerTag);
+  let player = allPlayer.filter((player) => player.tag === playerTag);
+  return player[0];
+}
+
 export default function CurrentWarFooter({
   showdetails,
   setShowdetails,
-  data
+  data,
 }) {
-  let { show, player,opponent } = showdetails;
+  let { show, player, opponent } = showdetails;
   if (!player) {
     return <></>;
   }
-  let playerOpponentClanMembers = data[opponent].members
-  console.log(player)
-  console.log(playerOpponentClanMembers)
+  let opponentClanMembers = data[opponent].members;
+  
   return (
     <>
       <div
@@ -28,18 +33,24 @@ export default function CurrentWarFooter({
           </h2>
 
           <small>
-            Attack remain: {2 - player.attacks ? 2 - player.attacks.length : 2}
+            Attack remain: {player.attacks ? 2 - player.attacks.length : 2}
           </small>
           <hr />
           <div className="details-table">
             <div className="col">
               <small>Attack</small>
+
               {player.attacks ? (
                 <>
                   {player.attacks.map((attack, ind) => (
                     <Fragment key={ind}>
                       <div className="row">
-                        <div className="name">{attack.defenderTag}</div>
+                        <div className="name">
+                          {
+                            findPlayer(opponentClanMembers, attack.defenderTag)
+                              .name
+                          }
+                        </div>
                         <small>{attack.destructionPercentage}%</small>
                         <span className="stars">
                           <FontAwesomeIcon icon={faStar} />
@@ -55,12 +66,18 @@ export default function CurrentWarFooter({
               )}
             </div>
             <div className="col">
-              <small>Deffnce</small>
+              <small>Attacked By</small>
               {player.bestOpponentAttack ? (
                 <>
                   <div className="row">
                     <div className="name">
-                      {player.bestOpponentAttack.attackerTag}
+                      {}
+                      {
+                        findPlayer(
+                          opponentClanMembers,
+                          player.bestOpponentAttack.attackerTag
+                        ).name
+                      }
                     </div>
                     <small>
                       {player.bestOpponentAttack.destructionPercentage}%
@@ -103,33 +120,3 @@ export default function CurrentWarFooter({
     </>
   );
 }
-//615316597
-
-/**
- 
-<>
-      <div
-        className={`currentwar--footer-container ${show ? "" : "hide"}`}
-        onClick={() => {
-          setShowdetails({ show: false, data: null });
-        }}
-      >
-        <div className="currentwar--footer">
-          <div className="currentwar--footer_main">
-            <div className="currentwar--footer_main-details">
-              <h2>
-                {data.mapPosition}.{data.name}
-              </h2>
-
-              <small>
-                Attack remain: {2 - data.attacks ? 2 - data.attacks.length : 2}
-              </small>
-              <hr />
-              
-            </div>
-          </div>
-        </div>
-      </div>
-    </>
-
- */

@@ -4,6 +4,7 @@
 }
 .currentwar {
   height: 120vh;
+  min-height: 600px;
   padding: 0.5rem;
   border-radius: 0.5rem;
   border: 1px dashed #111;
@@ -12,6 +13,16 @@
   grid-template-columns: auto;
   grid-template-rows: 170px 1fr;
 }
+.currentwar.preparation{
+  
+}
+.currentwar.notInWar {
+  height: auto;
+  min-height: 10px;
+  display: block;
+  border: none;
+}
+
 .currentwar * {
   font-family: coc;
 }
@@ -209,6 +220,12 @@
   display: block;
   text-align: center;
   padding-bottom: 10px;
+  color: #fff;
+}
+.currentwar--body_team .team-player .team-player-name img {
+  display: inline;
+  max-width: 20px;
+  margin-right: 5px;
 }
 .currentwar--body_team:first-child .team-player:nth-child(even) {
   margin-right: auto;
@@ -228,7 +245,7 @@
   right: 0;
 }
 .toogle-container button {
-  background: linear-gradient(var(--col-orange-1) 50%, var(--col-orange-0) 50%);
+  background: linear-gradient(#666, #333);
   border: 2px solid #fff;
   border-radius: 5px;
   color: #fff;
@@ -244,7 +261,6 @@
   bottom: 0;
   left: 0;
   width: 100%;
-  
 }
 .details--container.hide {
   width: 0;
@@ -298,7 +314,7 @@
 }
 
 @media only screen and (min-width: 600px) {
-  .toogle-container{
+  .toogle-container {
     display: none;
     width: 0;
   }
@@ -312,11 +328,9 @@
     display: none;
     width: 0;
   }
-  
 }
 
 /* Current War */
-
 
 /* background-image: repeating-linear-gradient(157.5deg, rgb(253,222,179) 0px, rgb(253,222,179) 0px,transparent 0px, transparent 1px,rgb(253,222,179) 1px, rgb(253,222,179) 4px,transparent 4px, transparent 5px,rgb(253,222,179) 5px, rgb(253,222,179) 8px),repeating-linear-gradient(90deg, rgb(253,222,179) 0px, rgb(253,222,179) 0px,transparent 0px, transparent 1px,rgb(253,222,179) 1px, rgb(253,222,179) 4px,transparent 4px, transparent 5px,rgb(253,222,179) 5px, rgb(253,222,179) 8px),linear-gradient(135deg, rgb(181,156,122),rgb(234,208,161)); */
 

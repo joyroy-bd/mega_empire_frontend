@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import th_1 from "../../img/th_1.png";
 import th_2 from "../../img/th_2.png";
 import th_3 from "../../img/th_3.png";
@@ -13,8 +13,14 @@ import th_11 from "../../img/th_11.png";
 import th_12 from "../../img/th_12.png";
 import th_13 from "../../img/th_13.png";
 import th_14 from "../../img/th_14.png";
+// import sword from "../../img/sword (1).png";
+import sword from "../../img/Sword.svg";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faStar, faChevronLeft } from "@fortawesome/free-solid-svg-icons";
+import {
+  faStar,
+  faChevronLeft,
+  faChevronRight,
+} from "@fortawesome/free-solid-svg-icons";
 
 function thIcone(th) {
   switch (th) {
@@ -51,12 +57,14 @@ function thIcone(th) {
       return th_1;
   }
 }
+
 function Player({ player, setShowdetails, opponent }) {
   const viewDetailes = () => {
     setShowdetails((pre) => {
       return { show: !pre.show, player: player, opponent: opponent };
     });
   };
+
   return (
     <>
       <div className="team-player" onClick={viewDetailes}>
@@ -101,6 +109,10 @@ function Player({ player, setShowdetails, opponent }) {
         />
         <span className="team-player-name">
           {player.mapPosition}.{player.name}
+          <br />
+          {/* <img src={sword} alt="" /> */}
+          <img src={sword} alt="" />
+          {player.attacks ? 2 - player.attacks.length : 2}
         </span>
       </div>
     </>
@@ -108,6 +120,8 @@ function Player({ player, setShowdetails, opponent }) {
 }
 
 export default function CurrentWarMain({ data, setShowdetails, children }) {
+  const [home, setHome] = useState(false);
+
   data.clan.members.sort((next, current) => {
     let currMapPosi = current.mapPosition;
     let nextMapPosi = next.mapPosition;
@@ -133,7 +147,11 @@ export default function CurrentWarMain({ data, setShowdetails, children }) {
     <>
       <div className="currentwar--body">
         <div className="currentwar--body-teams">
-          <div className="currentwar--body_team">
+          <div
+            className={
+              home ? "currentwar--body_team active" : "currentwar--body_team"
+            }
+          >
             {data.clan.members.map((member, index) => (
               <Player
                 key={index}
@@ -145,7 +163,11 @@ export default function CurrentWarMain({ data, setShowdetails, children }) {
             ))}
           </div>
 
-          <div className="currentwar--body_team active">
+          <div
+            className={
+              !home ? "currentwar--body_team active" : "currentwar--body_team"
+            }
+          >
             {data.opponent.members.map((member, index) => (
               <Player
                 key={index}
@@ -158,8 +180,12 @@ export default function CurrentWarMain({ data, setShowdetails, children }) {
           </div>
         </div>
         <div className="toogle-container">
-          <button>
-            <FontAwesomeIcon icon={faChevronLeft} />
+          <button
+            onClick={() => {
+              setHome((pre) => !pre);
+            }}
+          >
+            <FontAwesomeIcon icon={home ? faChevronRight : faChevronLeft} />
           </button>
         </div>
 
