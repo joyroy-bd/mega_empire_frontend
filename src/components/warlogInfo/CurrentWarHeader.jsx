@@ -104,7 +104,7 @@ export default function CurrentWarHeader({ data }) {
               <a
                 target="_blank"
                 rel="noreferrer"
-                href={`/clan${new URLSearchParams({
+                href={`/clan?${new URLSearchParams({
                   tag: data.clan.tag,
                 }).toString()}`}
               >
@@ -113,7 +113,7 @@ export default function CurrentWarHeader({ data }) {
               <a
                 target="_blank"
                 rel="noreferrer"
-                href={`/clan${new URLSearchParams({
+                href={`/clan?${new URLSearchParams({
                   tag: data.opponent.tag,
                 }).toString()}`}
               >

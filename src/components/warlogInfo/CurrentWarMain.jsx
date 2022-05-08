@@ -58,7 +58,7 @@ function thIcone(th) {
   }
 }
 
-function Player({ player, setShowdetails, opponent }) {
+function Player({ player, setShowdetails, opponent, data }) {
   const viewDetailes = () => {
     setShowdetails((pre) => {
       return { show: !pre.show, player: player, opponent: opponent };
@@ -110,9 +110,13 @@ function Player({ player, setShowdetails, opponent }) {
         <span className="team-player-name">
           {player.mapPosition}.{player.name}
           <br />
-          {/* <img src={sword} alt="" /> */}
-          <img src={sword} alt="" />
-          {player.attacks ? 2 - player.attacks.length : 2}
+          {/* {console.log(data)} */}
+          {data.state !== "preparation" && (
+            <>
+              <img src={sword} alt="" />
+              {player.attacks ? 2 - player.attacks.length : 2}
+            </>
+          )}
         </span>
       </div>
     </>

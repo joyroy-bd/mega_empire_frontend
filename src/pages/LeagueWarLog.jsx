@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import WarLeagueTeams from "../components/warlogInfo/WarLeagueTeams";
 import useClanLeagueGroup from "../hooks/useClanLeagueGroup";
-import "../styles/warLeagues.css";
 import WarLeagueRounds from "../components/warlogInfo/WarLeagueRounds";
 import { useSearchParams } from "react-router-dom";
+import "../styles/warLeagues.css";
 
 export default function LeagueWarLog() {
   let [URLSearchParams] = useSearchParams();
